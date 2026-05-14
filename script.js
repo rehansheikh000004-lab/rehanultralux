@@ -34,3 +34,30 @@ window.addEventListener("scroll", () => {
   });
 
 });
+
+/* THEME TOGGLE */
+
+const toggle =
+  document.getElementById("themeToggle");
+
+if (toggle) {
+
+  toggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("light-mode");
+
+    if (
+      document.body.classList.contains("light-mode")
+    ) {
+
+      toggle.innerHTML = "☾";
+
+    } else {
+
+      toggle.innerHTML = "☀";
+
+    }
+
+  });
+
+}
