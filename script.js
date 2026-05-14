@@ -61,3 +61,29 @@ if (toggle) {
   });
 
 }
+
+/* =========================
+   TIMELINE PARALLAX
+========================= */
+
+const timelineImages =
+  document.querySelectorAll(
+    ".timeline-right img"
+  );
+
+window.addEventListener("scroll", () => {
+
+  const scrollY =
+    window.scrollY;
+
+  timelineImages.forEach((img, index) => {
+
+    const speed =
+      (index + 1) * 0.03;
+
+    img.style.transform =
+      `translateY(${scrollY * speed}px)`;
+
+  });
+
+});
