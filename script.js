@@ -1,15 +1,15 @@
-/* LOADER */
+/* CURSOR */
 
-window.addEventListener("load", () => {
+const cursor =
+  document.querySelector(".cursor");
 
-  const loader =
-    document.querySelector(".loader");
+window.addEventListener("mousemove", (e) => {
 
-  setTimeout(() => {
+  cursor.style.left =
+    e.clientX + "px";
 
-    loader.classList.add("hidden");
-
-  }, 2000);
+  cursor.style.top =
+    e.clientY + "px";
 
 });
 
@@ -34,52 +34,3 @@ window.addEventListener("scroll", () => {
   });
 
 });
-
-/* CURSOR GLOW */
-
-const glow =
-  document.querySelector(".cursor-glow");
-
-window.addEventListener("mousemove", (e) => {
-
-  glow.style.left = e.clientX + "px";
-
-  glow.style.top = e.clientY + "px";
-
-});
-
-/* PARTICLES */
-
-const particles =
-  document.querySelector(".particles");
-
-for (let i = 0; i < 60; i++) {
-
-  const particle =
-    document.createElement("span");
-
-  particle.style.position = "absolute";
-
-  particle.style.width =
-    `${Math.random() * 4 + 2}px`;
-
-  particle.style.height =
-    particle.style.width;
-
-  particle.style.background =
-    "rgba(255,255,255,0.3)";
-
-  particle.style.borderRadius = "50%";
-
-  particle.style.left =
-    `${Math.random() * 100}%`;
-
-  particle.style.top =
-    `${Math.random() * 100}%`;
-
-  particle.style.animation =
-    `float ${Math.random() * 10 + 5}s linear infinite`;
-
-  particles.appendChild(particle);
-
-}
