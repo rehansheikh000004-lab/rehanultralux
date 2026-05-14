@@ -343,3 +343,64 @@ nav a {
   }
 
 }
+
+/* THEME TOGGLE */
+
+.theme-toggle {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  background: rgba(255,255,255,0.05);
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  transition: 0.4s;
+}
+
+.theme-toggle:hover {
+  transform: rotate(180deg) scale(1.08);
+}
+
+/* LIGHT MODE */
+
+body.light-mode {
+  background: #f3f3f3;
+
+  color: #050505;
+}
+
+body.light-mode .navbar {
+  background: rgba(255,255,255,0.6);
+}
+
+body.light-mode nav a {
+  color: #333;
+}
+
+body.light-mode .description,
+body.light-mode .feature-card p,
+body.light-mode .showcase p,
+body.light-mode footer p {
+  color: #555;
+}
+
+body.light-mode .feature-card {
+  background: rgba(255,255,255,0.8);
+
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+body.light-mode .bg-gradient {
+  background:
+    radial-gradient(circle at top right,
+    rgba(0,0,0,0.06),
+    transparent 40%);
+}
