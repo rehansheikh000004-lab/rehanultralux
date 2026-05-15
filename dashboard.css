@@ -1,0 +1,287 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #050505;
+
+  color: white;
+
+  font-family: "Inter", sans-serif;
+
+  display: flex;
+
+  overflow-x: hidden;
+}
+
+/* GLOW */
+
+.bg-glow {
+  position: fixed;
+
+  width: 700px;
+  height: 700px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,0.08),
+      transparent
+    );
+
+  top: -250px;
+  right: -250px;
+
+  filter: blur(120px);
+
+  z-index: -1;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: 260px;
+
+  height: 100vh;
+
+  position: fixed;
+
+  padding: 40px;
+
+  border-right:
+    1px solid rgba(255,255,255,0.06);
+
+  backdrop-filter: blur(14px);
+}
+
+.logo {
+  font-size: 26px;
+
+  letter-spacing: 6px;
+
+  font-weight: 800;
+
+  margin-bottom: 80px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+}
+
+.sidebar nav a {
+  text-decoration: none;
+
+  color: #888;
+
+  transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+  color: white;
+}
+
+/* MAIN */
+
+.main {
+  margin-left: 260px;
+
+  width: 100%;
+
+  padding: 50px;
+}
+
+/* TOPBAR */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 70px;
+}
+
+.topbar h1 {
+  font-size: 64px;
+
+  line-height: 0.9;
+}
+
+.profile-btn {
+  padding: 16px 30px;
+
+  border-radius: 50px;
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  background:
+    rgba(255,255,255,0.05);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.4s;
+}
+
+.profile-btn:hover {
+  transform: translateY(-6px);
+}
+
+/* GRID */
+
+.apps-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+  gap: 35px;
+}
+
+/* CARD */
+
+.app-card {
+  background:
+    rgba(255,255,255,0.04);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius: 30px;
+
+  padding: 45px;
+
+  backdrop-filter: blur(12px);
+
+  transition: 0.6s ease;
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+.app-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.04),
+      transparent
+    );
+
+  opacity: 0;
+
+  transition: 0.6s;
+}
+
+.app-card:hover::before {
+  opacity: 1;
+}
+
+.app-card:hover {
+  transform:
+    translateY(-10px)
+    scale(1.02);
+}
+
+/* TEXT */
+
+.app-small {
+  font-size: 11px;
+
+  letter-spacing: 5px;
+
+  color: #777;
+
+  margin-bottom: 20px;
+}
+
+.app-card h2 {
+  font-size: 40px;
+
+  margin-bottom: 20px;
+}
+
+.app-description {
+  color: #888;
+
+  line-height: 1.8;
+
+  margin-bottom: 35px;
+}
+
+/* BUTTON */
+
+.app-card a {
+  text-decoration: none;
+
+  color: white;
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  padding: 14px 24px;
+
+  border-radius: 40px;
+
+  transition: 0.4s;
+}
+
+.app-card a:hover {
+  background: white;
+
+  color: black;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .topbar h1 {
+    font-size: 48px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .main {
+    padding: 30px;
+  }
+
+  .topbar {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 25px;
+  }
+
+  .topbar h1 {
+    font-size: 38px;
+  }
+
+  .app-card h2 {
+    font-size: 32px;
+  }
+
+}
