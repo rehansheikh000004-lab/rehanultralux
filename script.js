@@ -87,3 +87,125 @@ window.addEventListener("scroll", () => {
   });
 
 });
+
+/* =========================
+   AI TERMINAL
+========================= */
+
+const terminalInput =
+  document.getElementById("terminalInput");
+
+const terminalOutput =
+  document.getElementById("terminalOutput");
+
+if (terminalInput) {
+
+  terminalInput.addEventListener(
+    "keydown",
+    (e) => {
+
+      if (e.key === "Enter") {
+
+        const command =
+          terminalInput.value
+            .toLowerCase();
+
+        addLine(
+          `> ${command}`
+        );
+
+        runCommand(command);
+
+        terminalInput.value = "";
+
+      }
+
+    }
+  );
+
+}
+
+/* ADD LINE */
+
+function addLine(text) {
+
+  const line =
+    document.createElement("p");
+
+  line.textContent = text;
+
+  terminalOutput.appendChild(line);
+
+  terminalOutput.scrollTop =
+    terminalOutput.scrollHeight;
+
+}
+
+/* COMMANDS */
+
+function runCommand(command) {
+
+  switch(command) {
+
+    case "help":
+
+      addLine(
+        "Commands: vision, motion, atmosphere, enter, clear"
+      );
+
+      break;
+
+    case "vision":
+
+      addLine(
+        "Luxury cinematic future initialized."
+      );
+
+      break;
+
+    case "motion":
+
+      addLine(
+        "Experimental motion system activated."
+      );
+
+      break;
+
+    case "atmosphere":
+
+      addLine(
+        "Dark art atmosphere detected."
+      );
+
+      break;
+
+    case "enter":
+
+      addLine(
+        "Opening REHAN ecosystem..."
+      );
+
+      setTimeout(() => {
+
+        window.location.href =
+          "dashboard.html";
+
+      }, 1200);
+
+      break;
+
+    case "clear":
+
+      terminalOutput.innerHTML = "";
+
+      break;
+
+    default:
+
+      addLine(
+        "Unknown command."
+      );
+
+  }
+
+}
