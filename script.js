@@ -266,3 +266,32 @@ if (blackhole) {
   });
 
 }
+
+/* =========================
+   MUSIC ROOM
+========================= */
+
+const music =
+  document.getElementById("ambientMusic");
+
+const playBtn =
+  document.getElementById("playMusic");
+
+const pauseBtn =
+  document.getElementById("pauseMusic");
+
+if (playBtn && pauseBtn && music) {
+
+  playBtn.addEventListener("click", () => {
+
+    music.play();
+
+  });
+
+  pauseBtn.addEventListener("click", () => {
+
+    music.pause();
+
+  });
+
+}
