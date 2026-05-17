@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+<title>Todo App</title>
+
+<link rel="stylesheet"
+href="apps.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<div class="topbar">
+
+<div class="logo">
+REHAN
+</div>
+
+<a href="dashboard.html"
+class="back-btn">
+Back
+</a>
+
+</div>
+
+<div class="app-container">
+
+<h1 class="app-title">
+Todo App
+</h1>
+
+<p class="app-description">
+Luxury productivity system.
+</p>
+
+<div class="input-group">
+
+<input type="text"
+id="taskInput"
+placeholder="Enter task...">
+
+<button onclick="addTask()">
+Add
+</button>
+
+</div>
+
+<div class="list"
+id="taskList"></div>
+
+</div>
+
+<script>
+
+const taskInput =
+document.getElementById("taskInput");
+
+const taskList =
+document.getElementById("taskList");
+
+let tasks =
+JSON.parse(localStorage.getItem("tasks")) || [];
+
+function renderTasks(){
+
+taskList.innerHTML="";
+
+tasks.forEach((task,index)=>{
+
+taskList.innerHTML += `
+<div class="item">
+
+<span>${task}</span>
+
+<button onclick="deleteTask(${index})">
+Delete
+</button>
+
+</div>
+`;
+
+});
+
+}
+
+function addTask(){
+
+if(taskInput.value==="") return;
+
+tasks.push(taskInput.value);
+
+localStorage.setItem(
+"tasks",
+JSON.stringify(tasks)
+);
+
+taskInput.value="";
+
+renderTasks();
+
+}
+
+function deleteTask(index){
+
+tasks.splice(index,1);
+
+localStorage.setItem(
+"tasks",
+JSON.stringify(tasks)
+);
+
+renderTasks();
+
+}
+
+renderTasks();
+
+</script>
+
+</body>
+</html>
