@@ -209,3 +209,60 @@ function runCommand(command) {
   }
 
 }
+
+/* =========================
+   BLACK HOLE INTERACTION
+========================= */
+
+const blackhole =
+  document.querySelector(".blackhole-container");
+
+if (blackhole) {
+
+  window.addEventListener("mousemove", (e) => {
+
+    const rect =
+      blackhole.getBoundingClientRect();
+
+    const centerX =
+      rect.left + rect.width / 2;
+
+    const centerY =
+      rect.top + rect.height / 2;
+
+    const deltaX =
+      e.clientX - centerX;
+
+    const deltaY =
+      e.clientY - centerY;
+
+    const distance =
+      Math.sqrt(
+        deltaX * deltaX +
+        deltaY * deltaY
+      );
+
+    if (distance < 300) {
+
+      blackhole.style.transform =
+        `
+        translate(
+          ${deltaX * 0.03}px,
+          ${deltaY * 0.03}px
+        )
+        scale(1.03)
+        `;
+
+    } else {
+
+      blackhole.style.transform =
+        `
+        translate(0,0)
+        scale(1)
+        `;
+
+    }
+
+  });
+
+}
