@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Admin Panel</title>
+
+<link rel="stylesheet"
+href="apps.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+<div class="logo">
+REHAN
+</div>
+
+<a href="./dashboard.html"
+class="back-btn">
+
+Back
+
+</a>
+
+</div>
+
+<!-- APP -->
+
+<div class="app-container">
+
+<h1 class="app-title">
+Admin Panel
+</h1>
+
+<p class="app-description">
+
+AI futuristic ecosystem control center.
+
+</p>
+
+<!-- STATS -->
+
+<div class="stats-grid">
+
+<!-- CARD -->
+
+<div class="stat-card">
+
+<p>
+Active Users
+</p>
+
+<h2 id="users">
+
+0
+
+</h2>
+
+</div>
+
+<!-- CARD -->
+
+<div class="stat-card">
+
+<p>
+Projects
+</p>
+
+<h2 id="projects">
+
+0
+
+</h2>
+
+</div>
+
+<!-- CARD -->
+
+<div class="stat-card">
+
+<p>
+Atmosphere Score
+</p>
+
+<h2 id="score">
+
+0%
+
+</h2>
+
+</div>
+
+<!-- CARD -->
+
+<div class="stat-card">
+
+<p>
+System Status
+</p>
+
+<h2>
+
+ONLINE
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* ANIMATED COUNTERS */
+
+function animateValue(id,start,end,duration){
+
+let current = start;
+
+const increment =
+(end - start) / 100;
+
+const obj =
+document.getElementById(id);
+
+const timer =
+setInterval(()=>{
+
+current += increment;
+
+obj.innerHTML =
+Math.floor(current);
+
+if(current >= end){
+
+obj.innerHTML = end;
+
+clearInterval(timer);
+
+}
+
+}, duration / 100);
+
+}
+
+/* START */
+
+animateValue(
+"users",
+0,
+3200,
+2000
+);
+
+animateValue(
+"projects",
+0,
+48,
+1800
+);
+
+animateValue(
+"score",
+0,
+98,
+2200
+);
+
+/* PERCENT */
+
+setTimeout(()=>{
+
+document.getElementById(
+"score"
+).innerHTML = "98%";
+
+},2200);
+
+</script>
+
+</body>
+</html>
