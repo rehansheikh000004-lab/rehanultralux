@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Booking App</title>
+
+<link rel="stylesheet"
+href="apps.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+<div class="logo">
+REHAN
+</div>
+
+<a href="./dashboard.html"
+class="back-btn">
+
+Back
+
+</a>
+
+</div>
+
+<!-- APP -->
+
+<div class="app-container">
+
+<h1 class="app-title">
+Booking App
+</h1>
+
+<p class="app-description">
+
+Luxury cinematic reservation experience.
+
+</p>
+
+<!-- GRID -->
+
+<div class="booking-grid">
+
+<!-- CARD -->
+
+<div class="booking-card">
+
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+
+<div class="booking-content">
+
+<h3>
+Luxury Suite
+</h3>
+
+<p>
+Minimal cinematic luxury stay experience.
+</p>
+
+<button onclick="bookNow('Luxury Suite')">
+
+Book Now
+
+</button>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="booking-card">
+
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156">
+
+<div class="booking-content">
+
+<h3>
+Dark Penthouse
+</h3>
+
+<p>
+Underground futuristic atmosphere room.
+</p>
+
+<button onclick="bookNow('Dark Penthouse')">
+
+Book Now
+
+</button>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="booking-card">
+
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
+
+<div class="booking-content">
+
+<h3>
+Atmosphere Villa
+</h3>
+
+<p>
+Experimental luxury architecture experience.
+</p>
+
+<button onclick="bookNow('Atmosphere Villa')">
+
+Book Now
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function bookNow(room){
+
+alert(
+`Booking confirmed for ${room}`
+);
+
+}
+
+</script>
+
+</body>
+</html>
