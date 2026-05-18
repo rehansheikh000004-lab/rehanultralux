@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Weather App</title>
+
+<link rel="stylesheet"
+href="apps.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- GLOW -->
+
+<div class="bg-glow"></div>
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+<div class="logo">
+REHAN
+</div>
+
+<a href="./dashboard.html"
+class="back-btn">
+
+Back
+
+</a>
+
+</div>
+
+<!-- APP -->
+
+<div class="app-container">
+
+<h1 class="app-title">
+Weather App
+</h1>
+
+<p class="app-description">
+
+Cinematic futuristic weather atmosphere.
+
+</p>
+
+<!-- SEARCH -->
+
+<div class="input-group">
+
+<input
+type="text"
+id="cityInput"
+placeholder="Enter city...">
+
+<button onclick="getWeather()">
+
+Search
+
+</button>
+
+</div>
+
+<!-- WEATHER -->
+
+<div class="weather-box">
+
+<h2 class="weather-temp"
+id="temperature">
+
+--°
+
+</h2>
+
+<p class="weather-city"
+id="cityName">
+
+Enter city
+
+</p>
+
+<p class="weather-status"
+id="weatherStatus">
+
+Atmosphere waiting...
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+async function getWeather(){
+
+const city =
+document.getElementById("cityInput").value;
+
+const apiKey =
+"YOUR_API_KEY";
+
+const url =
+`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+try{
+
+const response =
+await fetch(url);
+
+const data =
+await response.json();
+
+document.getElementById(
+"temperature"
+).innerHTML =
+Math.round(data.main.temp) + "°";
+
+document.getElementById(
+"cityName"
+).innerHTML =
+data.name;
+
+document.getElementById(
+"weatherStatus"
+).innerHTML =
+data.weather[0].description;
+
+/* DYNAMIC ATMOSPHERE */
+
+const body =
+document.body;
+
+const weather =
+data.weather[0].main.toLowerCase();
+
+if(weather.includes("cloud")){
+
+body.style.background =
+"linear-gradient(to bottom,#1a1a1a,#444)";
+
+}
+
+else if(weather.includes("rain")){
+
+body.style.background =
+"linear-gradient(to bottom,#0f2027,#203a43,#2c5364)";
+
+}
+
+else if(weather.includes("clear")){
+
+body.style.background =
+"linear-gradient(to bottom,#000000,#434343)";
+
+}
+
+else{
+
+body.style.background =
+"#050505";
+
+}
+
+}
+
+catch(error){
+
+alert("City not found");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
