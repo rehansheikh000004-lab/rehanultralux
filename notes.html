@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Notes App</title>
+
+<link rel="stylesheet"
+href="apps.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- GLOW -->
+
+<div class="bg-glow"></div>
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+<div class="logo">
+REHAN
+</div>
+
+<a href="./dashboard.html"
+class="back-btn">
+
+Back
+
+</a>
+
+</div>
+
+<!-- APP -->
+
+<div class="app-container">
+
+<h1 class="app-title">
+Notes App
+</h1>
+
+<p class="app-description">
+
+Luxury digital memory archive.
+
+</p>
+
+<!-- INPUT -->
+
+<div class="input-group">
+
+<input
+type="text"
+id="noteInput"
+placeholder="Write a note...">
+
+<button onclick="addNote()">
+
+Save
+
+</button>
+
+</div>
+
+<!-- NOTES -->
+
+<div class="notes-grid"
+id="notesGrid">
+
+</div>
+
+</div>
+
+<script>
+
+/* STORAGE */
+
+let notes =
+JSON.parse(
+localStorage.getItem("notes")
+) || [];
+
+/* ELEMENTS */
+
+const noteInput =
+document.getElementById("noteInput");
+
+const notesGrid =
+document.getElementById("notesGrid");
+
+/* RENDER */
+
+function renderNotes(){
+
+notesGrid.innerHTML = "";
+
+notes.forEach((note,index)=>{
+
+notesGrid.innerHTML += `
+
+<div class="note-card">
+
+<p>
+${note}
+</p>
+
+<button
+onclick="deleteNote(${index})">
+
+Delete
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+/* ADD */
+
+function addNote(){
+
+if(noteInput.value==="") return;
+
+notes.push(noteInput.value);
+
+localStorage.setItem(
+"notes",
+JSON.stringify(notes)
+);
+
+noteInput.value="";
+
+renderNotes();
+
+}
+
+/* DELETE */
+
+function deleteNote(index){
+
+notes.splice(index,1);
+
+localStorage.setItem(
+"notes",
+JSON.stringify(notes)
+);
+
+renderNotes();
+
+}
+
+/* INITIAL */
+
+renderNotes();
+
+</script>
+
+</body>
+</html>
