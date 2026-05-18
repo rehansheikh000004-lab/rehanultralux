@@ -390,3 +390,123 @@ body{
   }
 
 }
+
+/* =========================
+   NOTES APP
+========================= */
+
+.notes-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+}
+
+/* NOTE CARD */
+
+.note-card{
+
+background:
+rgba(255,255,255,0.04);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+border-radius:30px;
+
+padding:30px;
+
+min-height:220px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:space-between;
+
+backdrop-filter:blur(12px);
+
+transition:0.5s ease;
+
+position:relative;
+
+overflow:hidden;
+}
+
+.note-card::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,0.05),
+transparent
+);
+
+opacity:0;
+
+transition:0.5s;
+
+pointer-events:none;
+}
+
+.note-card:hover::before{
+
+opacity:1;
+}
+
+.note-card:hover{
+
+transform:
+translateY(-8px)
+scale(1.02);
+}
+
+/* TEXT */
+
+.note-card p{
+
+font-size:18px;
+
+line-height:1.8;
+
+color:#ddd;
+}
+
+/* BUTTON */
+
+.note-card button{
+
+margin-top:30px;
+
+padding:12px 20px;
+
+border:none;
+
+border-radius:30px;
+
+background:
+rgba(255,255,255,0.06);
+
+color:#ff6b6b;
+
+cursor:pointer;
+
+transition:0.4s;
+}
+
+.note-card button:hover{
+
+background:#ff6b6b;
+
+color:white;
+}
